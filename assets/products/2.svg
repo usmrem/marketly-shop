@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 220" role="img" aria-label="Изображение товара">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#b7ecd9"/><stop offset="100%" stop-color="#5bbd98"/></linearGradient>
+    <filter id="s" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#352b72" flood-opacity=".14"/></filter>
+  </defs>
+  <circle cx="120" cy="108" r="80" fill="#fff" opacity=".28"/>
+  <circle cx="120" cy="108" r="64" fill="url(#g)" opacity=".92"/>
+  <rect x="60" y="42" width="120" height="132" rx="30" fill="#fff" opacity=".19" transform="rotate(-8 120 108)"/>
+  <text x="120" y="142" text-anchor="middle" font-size="88" font-family="Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif" filter="url(#s)">👟</text>
+  <circle cx="181" cy="55" r="7" fill="#fff" opacity=".68"/>
+  <path d="M49 166l7-12 7 12z" fill="#fff" opacity=".6"/>
+</svg>

@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f7fb">
+  <meta name="description" content="Marketly — демонстрационный интернет-магазин с каталогом, фильтрами, корзиной и оформлением заказа.">
+  <title>Marketly — интернет-магазин</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="announcement-bar">
+    <span class="announcement-dot" aria-hidden="true"></span>
+    Бесплатная доставка при заказе от 20 000 ₸
+    <span class="announcement-separator">·</span>
+    <span>Возврат в течение 14 дней</span>
+  </div>
+
+  <header class="site-header">
+    <div class="header-main container">
+      <a class="brand" href="#top" aria-label="Marketly — на главную">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+        <span class="brand-name">marketly<span>.</span></span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Основная навигация">
+        <a class="nav-link active" href="#catalog">Каталог</a>
+        <a class="nav-link" href="#advantages">Преимущества</a>
+        <a class="nav-link" href="#contacts">Контакты</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-button mobile-search-toggle" id="mobileSearchToggle" aria-label="Открыть поиск" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.5"></circle><path d="m16 16 4.2 4.2"></path></svg>
+        </button>
+        <button class="cart-header-button" id="openCartButton" type="button" aria-label="Открыть корзину">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.1 10.1a2 2 0 0 0 2 1.6h8.7a2 2 0 0 0 1.9-1.4L22 8H6"></path><circle cx="9.5" cy="19.2" r="1.1"></circle><circle cx="18" cy="19.2" r="1.1"></circle></svg>
+          <span>Корзина</span><span class="cart-count" id="cartCount">0</span>
+        </button>
+      </div>
+    </div>
+    <div class="search-row container" id="searchRow">
+      <label class="search-box" for="searchInput">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.5"></circle><path d="m16 16 4.2 4.2"></path></svg>
+        <input id="searchInput" type="search" placeholder="Найти товары, бренды и многое другое..." autocomplete="off">
+        <kbd>Ctrl K</kbd>
+      </label>
+      <div class="delivery-note"><span class="delivery-icon">↗</span><span><strong>Доставка по Казахстану</strong><small>Бережно и вовремя</small></span></div>
+    </div>
+    <div class="mobile-search container" id="mobileSearchRow" hidden>
+      <label class="search-box" for="mobileSearchInput">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.5"></circle><path d="m16 16 4.2 4.2"></path></svg>
+        <input id="mobileSearchInput" type="search" placeholder="Что ищем?" autocomplete="off">
+      </label>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero container" aria-labelledby="heroTitle">
+      <div class="hero-copy">
+        <span class="eyebrow"><span class="eyebrow-sparkle">✦</span> Новая коллекция уже здесь</span>
+        <h1 id="heroTitle">Выбирай лучшее.<br><span>Живи ярче.</span></h1>
+        <p>Находки для дома, работы и хорошего настроения — в одном месте.</p>
+        <a class="primary-button hero-button" href="#catalog">Перейти к покупкам <span aria-hidden="true">→</span></a>
+        <div class="hero-social-proof">
+          <div class="avatar-stack" aria-hidden="true"><span>А</span><span>М</span><span>Д</span><span>+</span></div>
+          <div><strong>Уже выбирают 2 400+</strong><small>покупателей каждый месяц</small></div>
+        </div>
+      </div>
+      <div class="hero-art" aria-label="Подборка популярных товаров" role="img">
+        <div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div>
+        <div class="hero-label label-top"><span>✦</span> Выбор недели</div>
+        <div class="hero-product hero-headphones"><span>🎧</span></div>
+        <div class="hero-product hero-watch"><span>⌚</span></div>
+        <div class="hero-product hero-sneaker"><span>👟</span></div>
+        <div class="hero-spark spark-one">✳</div><div class="hero-spark spark-two">✦</div>
+        <div class="hero-label label-bottom"><span class="label-pulse"></span> Всё самое интересное</div>
+      </div>
+      <div class="hero-pagination" aria-hidden="true"><span class="selected"></span><span></span><span></span></div>
+    </section>
+
+    <section class="trust-strip container" id="advantages" aria-label="Наши преимущества">
+      <div class="trust-item"><span class="trust-icon purple">↗</span><div><strong>Быстрая доставка</strong><small>От 1 до 3 дней</small></div></div>
+      <div class="trust-item"><span class="trust-icon peach">♡</span><div><strong>С заботой о вас</strong><small>Поддержка каждый день</small></div></div>
+      <div class="trust-item"><span class="trust-icon mint">✓</span><div><strong>Проверенное качество</strong><small>Только хорошие находки</small></div></div>
+      <div class="trust-item"><span class="trust-icon yellow">₸</span><div><strong>Удобная оплата</strong><small>Выбирайте свой способ</small></div></div>
+    </section>
+
+    <section class="catalog-section container" id="catalog" aria-labelledby="catalogTitle">
+      <div class="section-heading">
+        <div>
+          <span class="section-kicker">Подборка для тебя</span>
+          <h2 id="catalogTitle">Популярные товары<span class="title-dot">.</span></h2>
+          <p class="section-description">Всё, что хочется добавить в свою жизнь.</p>
+        </div>
+        <div class="catalog-meta"><span id="resultCount">12 товаров</span><span class="meta-separator">·</span><span>Обновляем каждый день</span></div>
+      </div>
+
+      <div class="catalog-toolbar">
+        <div class="category-list" id="categoryList" role="group" aria-label="Фильтр по категориям">
+          <button class="category-chip selected" type="button" data-category="all" aria-pressed="true">Все товары <span>12</span></button>
+          <button class="category-chip" type="button" data-category="electronics" aria-pressed="false">Электроника</button>
+          <button class="category-chip" type="button" data-category="fashion" aria-pressed="false">Стиль</button>
+          <button class="category-chip" type="button" data-category="home" aria-pressed="false">Для дома</button>
+          <button class="category-chip" type="button" data-category="accessories" aria-pressed="false">Аксессуары</button>
+        </div>
+        <div class="price-filter" aria-label="Фильтр по цене">
+          <label for="minPrice">Цена от</label>
+          <input id="minPrice" type="number" min="0" step="1" inputmode="numeric" placeholder="0" aria-label="Минимальная цена">
+          <label for="maxPrice">до</label>
+          <input id="maxPrice" type="number" min="0" step="1" inputmode="numeric" placeholder="∞" aria-label="Максимальная цена">
+          <button id="applyPriceFilter" class="price-filter-button" type="button">Применить</button>
+        </div>
+        <label class="sort-control" for="sortSelect"><span>Сортировка:</span>
+          <select id="sortSelect">
+            <option value="popular">Популярные</option>
+            <option value="price-asc">Сначала дешевле</option>
+            <option value="price-desc">Сначала дороже</option>
+            <option value="name">По названию</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="active-filters" id="activeFilters" hidden>
+        <span id="activeFilterText"></span><button id="clearFiltersButton" type="button">Сбросить ✕</button>
+      </div>
+
+      <div class="product-grid" id="productGrid" aria-live="polite"></div>
+      <div class="empty-state" id="emptyState" hidden>
+        <div class="empty-icon">⌕</div><h3>Ничего не нашлось</h3><p>Попробуйте изменить запрос или выбрать другую категорию.</p><button class="secondary-button" id="resetSearchButton" type="button">Показать все товары</button>
+      </div>
+    </section>
+
+    <section class="newsletter container" id="contacts">
+      <div class="newsletter-decoration decoration-one"></div><div class="newsletter-decoration decoration-two"></div>
+      <div class="newsletter-copy"><span class="newsletter-kicker">Письма с пользой</span><h2>Хорошие находки<br>не должны ждать.</h2><p>Подпишитесь на новости и первыми узнавайте о новинках и специальных предложениях.</p></div>
+      <form class="newsletter-form" id="newsletterForm">
+        <label for="newsletterEmail">Ваш email</label>
+        <div class="newsletter-input-wrap"><input id="newsletterEmail" type="email" placeholder="name@example.com" required><button type="submit" aria-label="Подписаться">→</button></div>
+        <small>Никакого спама. Только хорошие новости.</small>
+      </form>
+      <div class="newsletter-graphic" aria-hidden="true"><span>✉</span><i>✦</i></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-brand"><a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span><span class="brand-name">marketly<span>.</span></span></a><p>Маленькие радости для<br>большой повседневной жизни.</p></div>
+      <div class="footer-column"><strong>Покупателям</strong><a href="#catalog">Каталог</a><a href="#advantages">Доставка и оплата</a><a href="#contacts">Поддержка</a></div>
+      <div class="footer-column"><strong>Информация</strong><a href="#advantages">О магазине</a><a href="#contacts">Контакты</a><a href="#top">Политика конфиденциальности</a></div>
+      <div class="footer-contact"><strong>Есть вопросы?</strong><a href="mailto:hello@marketly.example">hello@marketly.example</a><span>Пн–Пт, 09:00–18:00</span><div class="social-links"><a href="#contacts" aria-label="Instagram">ig</a><a href="#contacts" aria-label="Telegram">tg</a><a href="#contacts" aria-label="WhatsApp">wa</a></div></div>
+    </div>
+    <div class="container footer-bottom"><span>© <span id="currentYear">2026</span> Marketly. Учебный проект.</span><span>Сделано с вниманием к деталям <b>✦</b></span></div>
+  </footer>
+
+  <div class="overlay" id="overlay" hidden></div>
+  <aside class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-labelledby="cartTitle" aria-hidden="true">
+    <div class="drawer-header"><div><span class="drawer-kicker">Ваш выбор</span><h2 id="cartTitle">Корзина <span id="drawerItemCount">(0)</span></h2></div><button class="close-button" id="closeCartButton" type="button" aria-label="Закрыть корзину">×</button></div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-empty" id="cartEmpty"><div class="cart-empty-icon">🛍️</div><h3>Корзина пока пуста</h3><p>Самое время найти что-то классное.</p><button class="primary-button" id="continueShoppingButton" type="button">Выбрать товары</button></div>
+    <div class="cart-summary" id="cartSummary">
+      <div class="shipping-progress"><div class="shipping-progress-label"><span id="shippingMessage">Добавьте товары для бесплатной доставки</span><span id="shippingPercent">0%</span></div><div class="progress-track"><span id="shippingProgressFill"></span></div></div>
+      <div class="summary-row"><span>Товары</span><span id="subtotalValue">0 ₸</span></div>
+      <div class="summary-row"><span>Доставка</span><span id="deliveryValue">Рассчитаем при заказе</span></div>
+      <div class="summary-total"><span>Итого</span><strong id="totalValue">0 ₸</strong></div>
+      <button class="primary-button checkout-button" id="checkoutButton" type="button">Оформить заказ <span>→</span></button>
+      <p class="secure-note"><span>♧</span> Данные защищены. Оплата в демо-режиме.</p>
+    </div>
+  </aside>
+
+  <div class="modal-wrap" id="productDetailsModal" hidden>
+    <div class="modal-backdrop" data-close-product-details></div>
+    <section class="product-details-modal" role="dialog" aria-modal="true" aria-labelledby="productDetailsTitle">
+      <button class="close-button product-details-close" id="closeProductDetailsButton" type="button" aria-label="Закрыть описание товара">×</button>
+      <div id="productDetailsBody"></div>
+    </section>
+  </div>
+
+  <div class="modal-wrap" id="checkoutModal" hidden>
+    <div class="modal-backdrop" data-close-modal></div>
+    <section class="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+      <div class="modal-heading"><div><span class="drawer-kicker">Остался один шаг</span><h2 id="checkoutTitle">Оформление заказа</h2><p>Заполните контакты — и мы подготовим ваш заказ.</p></div><button class="close-button" id="closeCheckoutButton" type="button" aria-label="Закрыть окно">×</button></div>
+      <form id="checkoutForm" class="checkout-form">
+        <div class="form-row"><div class="form-field"><label for="customerName">Имя и фамилия *</label><input id="customerName" name="name" autocomplete="name" placeholder="Например, Алия Садыкова" required minlength="5" pattern=".*\s+.*" title="Введите имя и фамилию"></div><div class="form-field"><label for="customerPhone">Телефон *</label><input id="customerPhone" name="phone" type="tel" autocomplete="tel" placeholder="+7 7XX XXX XX XX" required minlength="10" pattern="[0-9+()\-\s]{10,}" title="Введите корректный номер телефона"></div></div>
+        <div class="form-field"><label for="customerEmail">Email *</label><input id="customerEmail" name="email" type="email" autocomplete="email" placeholder="name@example.com" required></div>
+        <div class="form-field"><label for="customerCity">Город *</label><select id="customerCity" name="city" required><option value="">Выберите город</option><option>Алматы</option><option>Астана</option><option>Шымкент</option><option>Караганда</option><option>Актобе</option><option>Другой город Казахстана</option></select></div>
+        <div class="form-field"><label for="customerAddress">Адрес доставки *</label><input id="customerAddress" name="address" autocomplete="street-address" placeholder="Улица, дом, квартира" required minlength="5"></div>
+        <div class="form-field"><label for="customerPaymentMethod">Способ оплаты *</label><select id="customerPaymentMethod" name="paymentMethod" required><option value="">Выберите способ оплаты</option><option value="cash_on_delivery">Наличными при получении</option><option value="card_on_delivery">Картой при получении</option><option value="bank_transfer_demo">Банковский перевод (демо)</option></select></div>
+        <div class="form-field"><label for="customerComment">Комментарий к заказу <span>(необязательно)</span></label><textarea id="customerComment" name="comment" rows="2" placeholder="Например, удобное время доставки"></textarea></div>
+        <div class="checkout-order-preview"><div><span>Ваш заказ</span><strong id="checkoutTotal">0 ₸</strong></div><small id="checkoutItemsSummary">0 товаров</small></div>
+        <p class="demo-notice">Заказ будет сохранён в учебной базе данных. Реальное списание средств не выполняется.</p>
+        <button class="primary-button checkout-submit" type="submit">Подтвердить заказ <span>→</span></button>
+      </form>
+    </section>
+  </div>
+
+  <div class="success-modal-wrap" id="successModal" hidden>
+    <div class="modal-backdrop" data-close-success></div>
+    <section class="success-modal" role="dialog" aria-modal="true" aria-labelledby="successTitle">
+      <div class="success-check">✓</div><span class="drawer-kicker">Всё получилось</span><h2 id="successTitle">Заказ оформлен!</h2><p id="successMessage">Спасибо за покупку. Это демонстрационный заказ.</p><div class="success-order-number" id="successOrderNumber">Заказ № MK-000001</div><button class="primary-button" id="successDoneButton" type="button">Продолжить покупки</button>
+    </section>
+  </div>
+
+  <div class="toast-region" id="toastRegion" aria-live="polite" aria-atomic="true"></div>
+</body>
+</html>

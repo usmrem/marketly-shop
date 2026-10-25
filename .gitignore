@@ -1,0 +1,20 @@
+node_modules/
+data/*.sqlite
+data/*.sqlite-shm
+data/*.sqlite-wal
+.DS_Store
+
+# Dependencies
+node_modules/
+
+# Local database
+data/*.sqlite
+data/*.sqlite-shm
+data/*.sqlite-wal
+
+# Environment variables
+.env
+.env.*
+
+# Logs
+npm-debug.log*
