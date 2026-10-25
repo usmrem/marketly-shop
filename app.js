@@ -128,7 +128,12 @@ async function requestJson(url, options = {}) {
 
 async function loadProducts({ quiet = false } = {}) {
   try {
-    const data = await requestJson('/api/products');
+    let data;
+    try {
+      data = await requestJson('/api/products');
+    } catch {
+      data = await requestJson('./products.json');
+    }
     if (!Array.isArray(data)) throw new Error('Сервер вернул каталог в неизвестном формате.');
 
     PRODUCTS = data.map((product) => ({
@@ -245,7 +250,7 @@ function renderProductCard(product) {
       <div class="product-image-wrap ${escapeHTML(product.tone)}">
         ${badge}
         <button class="favorite-button ${favorite ? 'is-favorite' : ''}" type="button" data-action="favorite" data-id="${product.id}" aria-label="${favoriteLabel}" aria-pressed="${favorite}">${favorite ? '♥' : '♡'}</button>
-        <img class="product-art" src="/assets/products/${product.id}.svg" alt="${escapeHTML(product.name)}" loading="lazy">
+        <img class="product-art" src="./assets/products/${product.id}.svg" alt="${escapeHTML(product.name)}" loading="lazy">
       </div>
       <div class="product-info">
         <span class="product-category">${escapeHTML(product.categoryLabel)}</span>
@@ -372,7 +377,7 @@ function openProductDetails(productId) {
 
   elements.productDetailsBody.innerHTML = `
     <div class="product-details-layout">
-      <div class="product-details-art ${escapeHTML(product.tone)}"><img class="product-details-image" src="/assets/products/${product.id}.svg" alt="${escapeHTML(product.name)}"></div>
+      <div class="product-details-art ${escapeHTML(product.tone)}"><img class="product-details-image" src="./assets/products/${product.id}.svg" alt="${escapeHTML(product.name)}"></div>
       <div class="product-details-copy">
         <span class="product-category">${escapeHTML(product.categoryLabel)}</span>
         <h2 id="productDetailsTitle">${escapeHTML(product.name)}</h2>
@@ -482,7 +487,7 @@ function renderCart() {
     if (!product) return '';
     return `
       <article class="cart-item">
-        <div class="cart-item-art ${escapeHTML(product.tone)}"><img src="/assets/products/${product.id}.svg" alt="" loading="lazy"></div>
+        <div class="cart-item-art ${escapeHTML(product.tone)}"><img src="./assets/products/${product.id}.svg" alt="" loading="lazy"></div>
         <div class="cart-item-content">
           <small>${escapeHTML(product.categoryLabel)}</small>
           <h3>${escapeHTML(product.name)}</h3>
@@ -806,3 +811,5 @@ async function init() {
 }
 
 init();
+
+
